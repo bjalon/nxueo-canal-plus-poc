@@ -18,9 +18,13 @@
   <div class="ui breadcrumb">
     <a class="section" href="dashboard.html">Dashboard</a>
     <div class="divider"> / </div>
-    <div class="active section">Nouvel incident</div>
+    <div ng-hide="doc.uid" class="active section">Nouvel incident</div>
+    <div ng-show="doc.uid" class="active section">Editer l'incident</div>
   </div>
-  <h2 class="ui header">Nouvel incident</h2>
+
+  <h2 ng-hide="doc.uid" class="ui header">Nouvel incident</h2>
+  <h2 ng-show="doc.uid" class="ui header">Editer l'incident</h2>
+
   <div class="container">
     <div class="ui form segment">
       <div class="ui horizontal icon divider">
@@ -29,55 +33,17 @@
       </div>
       <div class="field">
         <label>Plateformes</label>
+
+
         <div class="inline fields">
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>ADSL</label>
+          <div class="field" ng-repeat="value in plateformes">
+            <div class="ui radio">
+              <input type="radio" name="plateforme" value="{{value.id}}" ng-model="doc.properties['dc:coverage']">
+                <label>{{value.label}}</label>
             </div>
           </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>SAT</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>TNT</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>Cable / Fibre</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>CPLAY</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>PC/MAC</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>Tablette</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>Smartphone</label>
-            </div>
-          </div>
+
+
         </div>
         <div class="field">
           <label>Support ou type</label>
@@ -91,7 +57,7 @@
         <div class="field">
           <label>Titre</label>
           <div class="ui left labeled input">
-            <input type="text" placeholder="Titre">
+            <input type="text" placeholder="Titre" ng-model="doc.properties['dc:title']">
               <div class="ui corner label">
                 <i class="icon asterisk"></i>
               </div>
@@ -100,7 +66,7 @@
         <div class="field">
           <label>Descriptif</label>
           <div class="ui left labeled input">
-            <textarea placeholder="L'incident se produit lorsque…"></textarea>
+            <textarea placeholder="L'incident se produit lorsque…" ng-model="doc.properties['dc:description']"></textarea>
             <div class="ui corner label">
               <i class="icon asterisk"></i>
             </div>
@@ -136,8 +102,9 @@
           <input placeholder="Version" type="text">
         </div>
         <div class="segment">
-          <a href="incident_view.html" class="ui blue submit button">Créer</a>
-          <a href="dashboard.html" class="ui right floated button"> Annuler </a>
+          <a ng-hide="doc.uid" ng-click="create()" class="ui blue submit button">Créer</a>
+          <a ng-show="doc.uid" ng-click="save()" class="ui blue submit button">Enregistrer</a>
+          <a ng-click="cancel()" class="ui right floated button"> Annuler </a>
         </div>
       </div>
     </div>

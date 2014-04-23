@@ -1,0 +1,21 @@
+<div class="item">
+  <div class="content">
+    <div class="name">{{title}}</div>
+    <table class="ui table segment">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>State</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="doc in docs">
+          <td>{{doc.title}}</td>
+          <td>{{doc.state}}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

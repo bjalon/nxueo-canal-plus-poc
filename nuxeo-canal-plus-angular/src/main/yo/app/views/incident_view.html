@@ -16,27 +16,27 @@
 </div>
 <div id="incidentView" class="fourteen wide left column">
   <div class="ui breadcrumb">
-    <a class="section" href="dashboard.html">Dashboard</a>
+    <a class="section" ng-click="goToDashboard()">Dashboard</a>
     <div class="divider"> / </div>
-    <div class="active section">Incident N° 345678900-ABC</div>
+    <div class="active section">Incident N° {{doc.uid}}</div>
   </div>
   <a href="history.html" class="tiny ui right floated red button">
     <i class="time icon"></i>
     Historique
   </a>
-  <a href="incident_form.html" class="tiny ui right floated button">
+  <a ng-click="edit()" class="tiny ui right floated button">
     <i class="edit icon"></i>
     Editer
   </a>
   <h2 class="ui header">
-    Incident N° 345678900-ABC
+    Incident N° {{doc.uid}}
     <span class="ui label">
       créé le
-      <span class="detail">24 Janvier 2014</span>
+      <span class="detail">{{doc.properties['dc:created'] | date: 'medium'}}</span>
     </span>
     <span class="ui label">
       par
-      <span class="detail">Bruce Willis</span>
+      <span class="detail">{{doc.properties['dc:creator']}}</span>
     </span>
   </h2>
   <div class="container">
@@ -46,7 +46,7 @@
           <label>Plateforme</label>
         </div>
         <div class="column formField">
-          <span class="">ADSL</span>
+          <span class="">{{doc.properties['dc:coverage']}}</span>
         </div>
         <div class="column formlabel">
           <label>Support ou Type</label>
@@ -58,13 +58,13 @@
           <label>Titre</label>
         </div>
         <div class="column formField">
-          <span class="">Problème d'accès au menu</span>
+          <span class="">{{doc.properties['dc:title']}}</span>
         </div>
         <div class="column formlabel">
           <label>Descriptif</label>
         </div>
         <div class="column formField">
-          <span class="">Lorsque le client fait ceci, il se passe cela
+          <span class="">{{doc.properties['dc:description']}}
           </span>
         </div>
         <div class="column formlabel">
