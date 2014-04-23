@@ -1,32 +1,7 @@
 angular.module("nuxeoCanalPlus")
 
-.controller("IncidentCreateCtrl", ['$scope','nxSession','$location',($scope,nxSession,$location)->
-  $scope.plateformes = [
-    id: "SAT"
-    label: "SAT"
-  ,
-    id: "ADSL"
-    label: "ADSL"
-  ,
-    id: "TNT"
-    label: "TNT"
-  ,
-    id: "cable"
-    label: "Cable / Fibre"
-  ,
-    id: "cplay"
-    label: "CPLAY"
-  ,
-    id: "pcmac"
-    label: "PC / MAC"
-  ,
-    id: "tablette"
-    label: "Tablette"
-  ,
-    id: "smartphone"
-    label: "Smartphone"
-
-  ]
+.controller("IncidentCreateCtrl", ['$scope','nxSession','$location','plateformes',($scope,nxSession,$location,plateformes)->
+  $scope.plateformes = plateformes
   $scope.doc = {type: "File", properties:{}}
 
   $scope.save = ()->
@@ -66,4 +41,3 @@ angular.module("nuxeoCanalPlus")
     $location.path("/")
 
   ])
-

@@ -2,6 +2,32 @@
 angular.module("nuxeoCanalPlus", ['nxSession'])
 .value("nxUrl", "/nuxeo/api/v1" )
 .value("defaultSchemas", ["dublincore"])
+.value("plateformes", [
+    id: "SAT"
+    label: "SAT"
+  ,
+    id: "ADSL"
+    label: "ADSL"
+  ,
+    id: "TNT"
+    label: "TNT"
+  ,
+    id: "cable"
+    label: "Cable / Fibre"
+  ,
+    id: "cplay"
+    label: "CPLAY"
+  ,
+    id: "pcmac"
+    label: "PC / MAC"
+  ,
+    id: "tablette"
+    label: "Tablette"
+  ,
+    id: "smartphone"
+    label: "Smartphone"
+
+  ])
 .factory("nxSession", ["nxSessionFactory","nxUrl",(nxSessionFactory,nxUrl)->
   nxSessionFactory(
     apiRootPath: nxUrl
@@ -9,18 +35,6 @@ angular.module("nuxeoCanalPlus", ['nxSession'])
 ])
 .config ($routeProvider) ->
   $routeProvider
-  .when("/nav/*path/edit"
-    templateUrl: "views/edit.html"
-    controller: "EditCtrl"
-  )
-  .when("/nav/*path/new"
-    templateUrl: "views/edit.html"
-    controller: "CreateCtrl"
-  )
-  .when("/nav/*path"
-    templateUrl: "views/main.html"
-    controller: "MainCtrl"
-  )
   .when("/dashboard"
     templateUrl: "views/dashboard.html"
     controller: "DashboardCtrl"
