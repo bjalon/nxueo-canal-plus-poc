@@ -1,0 +1,161 @@
+html,
+body {
+  font-size: 15px;
+  height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  margin: 0px;
+  padding: 0px;
+  color: #444;
+  text-rendering: optimizeLegibility;
+  min-width: 320px;
+}
+
+a {
+		color:#d91030;
+		text-decoration: none;
+	}
+
+/* COMMONS */
+.grid {
+  height: 100%;
+}
+
+.logo img {
+ height:20px;
+}
+
+.header .ui.inverted.menu {
+ background-color: #000;
+}
+
+.header a.search.icon.item {
+	margin-right:2em;
+}
+
+.two.wide.middle.column {
+	background-color: #404040;
+	padding-top: 3em;
+}
+
+#dashboard.fourteen.wide.left.column,
+#search.fourteen.wide.left.column,
+#advancedSearch.twelve.wide.left,
+#advancedSearchResult.twelve.wide.left,
+#history.fourteen.wide.left.column,
+#incidentFormMenu.fourteen.wide.left.column,
+#incidentFormContent.fourteen.wide.left.column,
+#incidentView.fourteen.wide.left.column {
+	background-color: #f8f8f8;
+	padding: 5em 3em 5em;
+}
+
+.two.column .selection {
+	position:fixed;
+	top:5em;
+	width:12%;
+}
+
+.container {
+	padding: 1em 6em 4em;
+}
+
+h2.ui.header {
+	margin: .2em 0em 2rem;
+}
+
+.ui.items .item:hover,
+.ui.items .item:nth-of-type(6n+1):hover,
+.ui.items .item:nth-of-type(6n+2):hover,
+.ui.items .item:nth-of-type(6n+3):hover,
+.ui.items .item:nth-of-type(6n+4):hover {
+	border-bottom:0.2em solid #f00 !important;
+}
+
+.ui.red.segment {
+	border-top: 0.2em solid #f00;
+}
+
+.ui.red.buttons .button,
+.ui.red.button {
+	background-color:#f00;
+}
+
+#search .container,
+#advancedSearch .container,
+#advancedSearchResult .container {
+	padding-top: 4em;
+}
+
+#search.fourteen .selection.list .item,
+#advancedSearch.twelve .selection.list .item,
+#advancedSearchResult.twelve .selection.list .item {
+	padding: .8em;
+}
+
+#search .selection.list .item .header,
+#advancedSearch .selection.list .item .header,
+#advancedSearchResult .selection.list .item .header {
+	color: #000;
+	font-size: 1.1em;
+}
+
+#search div.divided.selection.list,
+#advancedSearch div.divided.selection.list,
+#advancedSearchResult div.divided.selection.list {
+ background-color: #fff;
+}
+
+#search div.divided.selection.list {
+	margin-top: 2em;
+}
+
+#incidentFormContent .ui.form .field > label,
+#advancedSearch .ui.form .field > label,
+#advancedSearchResult .ui.form .field > label {
+	font-weight: bold;
+}
+
+#incidentFormContent .ui.form .field > label {
+	font-size: 1.1em;
+}
+
+#incidentFormContent .ui.checkbox label {
+	padding: 0 1.8em 0 1.4em;
+}
+
+#incidentFormContent .divider:before,
+#incidentFormContent .divider:after {
+	border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#incidentFormContent .ui.divider > .icon,
+.ui.corner.label .icon.asterisk {
+	color: #f00;
+}
+
+#advancedSearch.four.wide.middle.column,
+#advancedSearchResult.four.wide.middle.column {
+	background-color:#f2f2f2;
+	padding: 5em 1.7em;
+}
+
+#incidentFormContent .horizontal.divider:before,
+#incidentFormContent .horizontal.divider:after {
+ width: 41%;
+}
+
+#incidentView .ui.two.column.grid > .row > .formlabel,
+#incidentView .ui.two.column.grid > .formlabel,
+#incidentView .ui.grid > .two.column.row > .formlabel {
+	color:#9A9A9A;
+	width: 20%;
+}
+
+#incidentView .ui.two.column.grid > .row > .formField,
+#incidentView .ui.two.column.grid > .formField,
+#incidentView .ui.grid > .two.column.row > .formField {
+	width: 80%;
