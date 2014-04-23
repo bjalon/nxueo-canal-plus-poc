@@ -6,10 +6,10 @@
   <h2 class="ui header">Dashboard</h2>
   <div class="ui two items">
 
-    <nxqlpanel ptitle="All files" nxql="SELECT * FROM File"/>
-    <nxqlpanel ptitle="All files" nxql="SELECT * FROM File"/>
-    <nxqlpanel ptitle="All files" nxql="SELECT * FROM File"/>
-    <nxqlpanel ptitle="All files" nxql="SELECT * FROM File"/>
+    <nxqlpanel ptitle="Mes incidents" nxql="SELECT * FROM Document WHERE ecm:mixinType IN ('RoutingTask') AND ecm:isCheckedInVersion = 0 AND ecm:currentLifeCycleState = 'opened' AND ecm:isProxy = 0"/>
+    <nxqlpanel ptitle="Les incidents en cours" nxql="SELECT * FROM IncidentCommercial,IncidentTechnique WHERE ecm:currentLifeCycleState != 'Clos' AND ecm:currentLifeCycleState != 'deleted'"/>
+    <nxqlpanel ptitle="Les incidents urgents (delai > 1h)" nxql="SELECT * FROM IncidentCommercial,IncidentTechnique WHERE ecm:currentLifeCycleState != 'Clos' AND ecm:currentLifeCycleState != 'deleted' AND incident:delaiResolutionHeure > 1"/>
+    <nxqlpanel ptitle="Les deniers incidents traités" nxql="SELECT * FROM IncidentCommercial,IncidentTechnique WHERE ecm:currentLifeCycleState = 'Clos' ORDER BY incident:dateReponse DESC"/>
 
 
   </div>
