@@ -43,7 +43,7 @@ angular.module('nxSession',['ng'])
         schemas = ( schemas || [])
         self = @
         promise = $http.get(apiRootPath + @getResourceUrl(),
-            headers: 
+            headers:
               "X-NXDocumentProperties": schemas.join(",")
         )
         @$resolved = false;
@@ -62,7 +62,7 @@ angular.module('nxSession',['ng'])
           delete self.pathOrId
           self
         ).then
-        
+
         self
 
       _getPathOrId: ()->
@@ -73,13 +73,13 @@ angular.module('nxSession',['ng'])
         if @uid? then "/id/" + @uid else if(@_getPathOrId()[0] == "/")
           "/path" + if @pathOrId == "/" then "/" else @pathOrId
         else
-          "/id/" + @pathOrId            
+          "/id/" + @pathOrId
 
       getChildren: (schemas)->
         schemas = ( schemas || [])
 
         $http.get(apiRootPath + @getResourceUrl() + "/@children"
-          headers: 
+          headers:
               "X-NXDocumentProperties": schemas.join(",")
         ).then (response)->
           docs = response.data
@@ -89,12 +89,12 @@ angular.module('nxSession',['ng'])
           else
             $q.reject("Response was not a collection")
 
-      isFolderish: ()->      
+      isFolderish: ()->
         if angular.isDefined(@facets) then @facets.indexOf("Folderish") != -1 else false
 
       save: (batchId)->
 
-        config = 
+        config =
             headers:
               "X-Batch-Id":batchId
 
@@ -103,7 +103,7 @@ angular.module('nxSession',['ng'])
 
       delete: ()->
         $http.delete(apiRootPath + @getResourceUrl(), @)
-          
+
 
 
       setPropertyValue: (property, value)->
@@ -121,6 +121,16 @@ angular.module('nxSession',['ng'])
           else
             $q.reject("Response was not a collection")
 
+      query: (query)->
+        $http.get(apiRootPath + @getResourceUrl() + "/@search?query="+query).then (response)->
+          docs = response.data.entries
+          if(angular.isArray(docs))
+            return docs.map( (response)-> new nxDocument(response.uid,response))
+          else
+            $q.reject("Response was not a collection")
+
+
+
 
       getAdapter: (adapterName)->
         $http.get(apiRootPath + @getResourceUrl() + "/@bo/"+adapterName).then (response)->
@@ -133,14 +143,14 @@ angular.module('nxSession',['ng'])
       doc['entity-type']  = "document"
       config =
           method: "POST"
-          url: apiRootPath + "/path" + parentPath 
+          url: apiRootPath + "/path" + parentPath
           data: doc
           headers:
             "X-Batch-Id":batchId
 
       $http(config).then (response)->
         new nxDocument(response.data.uid, response.data)
-  
+
     Session
 
 ]

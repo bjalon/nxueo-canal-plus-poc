@@ -1,6 +1,33 @@
 "use strict"
-angular.module("nuxeoCanalPlus", ['nxSession','ui.bootstrap','blueimp.fileupload'])
+angular.module("nuxeoCanalPlus", ['nxSession'])
 .value("nxUrl", "/nuxeo/api/v1" )
+.value("defaultSchemas", ["dublincore"])
+.value("plateformes", [
+    id: "SAT"
+    label: "SAT"
+  ,
+    id: "ADSL"
+    label: "ADSL"
+  ,
+    id: "TNT"
+    label: "TNT"
+  ,
+    id: "cable"
+    label: "Cable / Fibre"
+  ,
+    id: "cplay"
+    label: "CPLAY"
+  ,
+    id: "pcmac"
+    label: "PC / MAC"
+  ,
+    id: "tablette"
+    label: "Tablette"
+  ,
+    id: "smartphone"
+    label: "Smartphone"
+
+  ])
 .factory("nxSession", ["nxSessionFactory","nxUrl",(nxSessionFactory,nxUrl)->
   nxSessionFactory(
     apiRootPath: nxUrl
@@ -8,33 +35,21 @@ angular.module("nuxeoCanalPlus", ['nxSession','ui.bootstrap','blueimp.fileupload
 ])
 .config ($routeProvider) ->
   $routeProvider
-  .when("/nav/*path/edit"
-    templateUrl: "views/edit.html"
-    controller: "EditCtrl"
-  )
-  .when("/nav/*path/new"
-    templateUrl: "views/edit.html"
-    controller: "CreateCtrl"
-  )
-  .when("/nav/*path"
-    templateUrl: "views/main.html"
-    controller: "MainCtrl"
-  )
   .when("/dashboard"
     templateUrl: "views/dashboard.html"
     controller: "DashboardCtrl"
   )
-  .when("/incident/*id/edit"
-    templateUrl: "views/incident_edit.html"
-    controller: "DashboardCtrl"
-  )
-  .when("/incident/*id/create"
+  .when("/incident/create"
     templateUrl: "views/incident_create.html"
-    controller: "DashboardCtrl"
+    controller: "IncidentCreateCtrl"
   )
-  .when("/incident/*id/view"
+  .when("/incident/*docId/edit"
+    templateUrl: "views/incident_create.html"
+    controller: "IncidentEditCtrl"
+  )
+  .when("/incident/*docId/view"
     templateUrl: "views/incident_view.html"
-    controller: "DashboardCtrl"
+    controller: "IncidentViewCtrl"
   )
   .when("/search"
     templateUrl: "views/search.html"
@@ -44,5 +59,5 @@ angular.module("nuxeoCanalPlus", ['nxSession','ui.bootstrap','blueimp.fileupload
     templateUrl: "views/advanced_search.html"
     controller: "DashboardCtrl"
   )
-  
+
   .otherwise redirectTo: "/dashboard"
