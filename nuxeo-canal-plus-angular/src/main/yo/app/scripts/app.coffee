@@ -28,6 +28,16 @@ angular.module("nuxeoCanalPlus", ['nxSession'])
     label: "Smartphone"
 
   ])
+.value("priorite", [
+    id: "p1"
+    label: "P1"
+  ,
+    id: "p2"
+    label: "P2"
+  ,
+    id: "p3"
+    label: "P3"
+  ])
 .factory("nxSession", ["nxSessionFactory","nxUrl",(nxSessionFactory,nxUrl)->
   nxSessionFactory(
     apiRootPath: nxUrl

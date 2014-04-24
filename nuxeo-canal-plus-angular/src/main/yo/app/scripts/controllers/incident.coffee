@@ -1,7 +1,8 @@
 angular.module("nuxeoCanalPlus")
 
-.controller("IncidentCreateCtrl", ['$scope','nxSession','$location','plateformes',($scope,nxSession,$location,plateformes)->
+.controller("IncidentCreateCtrl", ['$scope','nxSession','$location','plateformes', 'priorite',($scope,nxSession,$location,plateformes,priorite)->
   $scope.plateformes = plateformes
+  $scope.priorite = priorite
   $scope.doc = {type: "File", properties:{}}
 
   $scope.save = ()->

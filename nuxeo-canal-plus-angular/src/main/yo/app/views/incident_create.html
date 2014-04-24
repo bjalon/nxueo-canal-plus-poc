@@ -16,7 +16,7 @@
 </div>
 <div id="incidentFormContent" class="fourteen wide left column">
   <div class="ui breadcrumb">
-    <a class="section" href="dashboard.html">Dashboard</a>
+    <a class="section" href="#/">Dashboard</a>
     <div class="divider"> / </div>
     <div ng-hide="doc.uid" class="active section">Nouvel incident</div>
     <div ng-show="doc.uid" class="active section">Editer l'incident</div>
@@ -24,7 +24,7 @@
 
   <h2 ng-hide="doc.uid" class="ui header">Nouvel incident</h2>
   <h2 ng-show="doc.uid" class="ui header">Editer l'incident</h2>
-
+<pre>{{doc}}</pre>
   <div class="container">
     <div class="ui form segment">
       <div class="ui horizontal icon divider">
@@ -32,28 +32,17 @@
         Champs obligatoires
       </div>
       <div class="field">
-        <label>Plateformes</label>
-
-
-        <div class="inline fields">
-          <div class="field" ng-repeat="value in plateformes">
-            <div class="ui radio">
-              <input type="radio" name="plateforme" value="{{value.id}}" ng-model="doc.properties['dc:coverage']">
-                <label>{{value.label}}</label>
-            </div>
-          </div>
-
-
-        </div>
+      
         <div class="field">
-          <label>Support ou type</label>
+          <label>Typologie</label>
           <div class="ui left labeled input">
-            <input type="text" placeholder="ADSL: Bouygues, Free, SFR, Orange,…">
+            <input type="text" placeholder="Remplir la typologie..." ng-model="doc.properties['incident:typologie']">
               <div class="ui corner label">
                 <i class="icon asterisk"></i>
               </div>
           </div>
         </div>
+
         <div class="field">
           <label>Titre</label>
           <div class="ui left labeled input">
@@ -63,19 +52,43 @@
               </div>
           </div>
         </div>
+
         <div class="field">
-          <label>Descriptif</label>
+          <label>Priorité</label>
+          <div class="inline fields">
+          <div class="field" ng-repeat="value in priorite">
+            <div class="ui radio">
+              <input type="radio" name="plateforme" value="{{value.id}}" ng-model="doc.properties['incident:priorite']">
+                <label>{{value.label}}</label>
+            </div>
+          </div>
+        </div>
+
+  
+        <div class="field">
+          <label>Opérateur</label>
           <div class="ui left labeled input">
-            <textarea placeholder="L'incident se produit lorsque…" ng-model="doc.properties['dc:description']"></textarea>
+            <input type="text" placeholder="ADSL: Bouygues, Free, SFR, Orange,…" ng-model="doc.properties['incident:operateur']">
+              <div class="ui corner label">
+                <i class="icon asterisk"></i>
+              </div>
+          </div>
+        </div>
+        
+        <div class="field">
+          <label>Descriptif Client</label>
+          <div class="ui left labeled input">
+            <textarea placeholder="L'incident se produit lorsque…" ng-model="doc.properties['incident:discours-client']"></textarea>
             <div class="ui corner label">
               <i class="icon asterisk"></i>
             </div>
           </div>
         </div>
+        
         <div class="field">
-          <label>Discours client</label>
+          <label>Complément</label>
           <div class="ui left labeled input">
-            <textarea placeholder="Le client indique que…"></textarea>
+            <textarea placeholder="Ajout" ng-model="doc.properties['incident:complement']"></textarea>
             <div class="ui corner label">
               <i class="icon asterisk"></i>
             </div>
