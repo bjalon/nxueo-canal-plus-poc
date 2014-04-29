@@ -10,8 +10,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="doc in docs">
-          <td>{{doc.title}}</td>
+        <tr ng-repeat="doc in docs" >
+          <td ng-click="navigate(doc)">{{doc.title}}</td>
           <td>{{doc.state}}</td>
           <td></td>
         </tr>

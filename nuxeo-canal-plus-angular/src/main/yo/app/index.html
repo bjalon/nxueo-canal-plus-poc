@@ -9,7 +9,7 @@
 
 
 </head>
-<body ng-app="nuxeoCanalPlus">
+<body ng-app="nuxeoCanalPlus" id="canal">
   <div class="header">
     <div class="ui fixed transparent inverted main menu">
      <div class="container">
@@ -24,26 +24,23 @@
   </div>
 
   <div class="ui celled grid">
-  <div id="incidentFormMenu" class="two wide middle column">
-    <div class="sixteen wide column">
-      <div class="ui inverted animated selection list">
-        <div class="item active">
-          Menu 1
-        </div>
-        <div class="item">
-          Menu 2
-        </div>
-        <div class="item">
-          Menu 3
-        </div>
-      </div>
-    </div>
-  </div>
+	  <div id="incidentFormMenu" class="two wide middle column">
+	    <div class="sixteen wide column">
+	      <div class="ui inverted animated selection list">
+	        <div class="item active">
+	          <a href="#/">Incidents</a>
+	        </div>
+	        <div class="item">
+	          Base de connaissance
+	        </div>
+	        <div class="item">
+	          Applications
+	        </div>
+	      </div>
+	    </div>
+	  </div>
 
-
-
-
-  <div class="fourteen wide left column" ng-view>
+  	  <div class="fourteen wide left column" ng-view>
 
 
   </div>

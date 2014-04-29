@@ -11,6 +11,5 @@
     <nxqlpanel ptitle="Les incidents urgents (delai > 1h)" nxql="SELECT * FROM IncidentCommercial,IncidentTechnique WHERE ecm:currentLifeCycleState != 'Clos' AND ecm:currentLifeCycleState != 'deleted' AND incident:delaiResolutionHeure > 1"/>
     <nxqlpanel ptitle="Les deniers incidents traités" nxql="SELECT * FROM IncidentCommercial,IncidentTechnique WHERE ecm:currentLifeCycleState = 'Clos' ORDER BY incident:dateReponse DESC"/>
 
-
   </div>
 </div>

@@ -1,7 +1,7 @@
 "use strict"
 angular.module("nuxeoCanalPlus", ['nxSession'])
 .value("nxUrl", "/nuxeo/api/v1" )
-.value("defaultSchemas", ["dublincore"])
+.value("defaultSchemas", ["dublincore", "incident", "incident_schema"])
 .value("plateformes", [
     id: "SAT"
     label: "SAT"
@@ -27,6 +27,16 @@ angular.module("nuxeoCanalPlus", ['nxSession'])
     id: "smartphone"
     label: "Smartphone"
 
+  ])
+.value("priorite", [
+    id: "p1"
+    label: "P1"
+  ,
+    id: "p2"
+    label: "P2"
+  ,
+    id: "p3"
+    label: "P3"
   ])
 .factory("nxSession", ["nxSessionFactory","nxUrl",(nxSessionFactory,nxUrl)->
   nxSessionFactory(
