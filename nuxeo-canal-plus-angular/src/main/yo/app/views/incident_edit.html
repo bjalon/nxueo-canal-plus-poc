@@ -30,7 +30,7 @@
         <div class="field">
           <label>Typologie</label>
           <div class="ui left labeled input">
-            <input type="text" placeholder="Remplir la typologie..." ng-model="doc.properties['incident:typologie']">
+            <input type="text" placeholder="Remplir la typologie..." ng-model="doc.properties['incident_schema:typologie']">
               <div class="ui corner label">
                 <i class="icon asterisk"></i>
               </div>
@@ -52,7 +52,7 @@
           <div class="inline fields">
           <div class="field" ng-repeat="value in priorite">
             <div class="ui radio">
-              <input type="radio" name="plateforme" value="{{value.id}}" ng-model="doc.properties['incident:priorite']">
+              <input type="radio" name="priorite" value="{{value.id}}" ng-model="doc.properties['incident:priorite']">
                 <label>{{value.label}}</label>
             </div>
           </div>

@@ -1,7 +1,7 @@
 "use strict"
 angular.module("nuxeoCanalPlus", ['nxSession'])
 .value("nxUrl", "/nuxeo/api/v1" )
-.value("defaultSchemas", ["dublincore"])
+.value("defaultSchemas", ["dublincore", "incident", "incident_schema"])
 .value("plateformes", [
     id: "SAT"
     label: "SAT"

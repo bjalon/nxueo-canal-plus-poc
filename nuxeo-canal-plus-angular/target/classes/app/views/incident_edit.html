@@ -27,89 +27,62 @@
         <i class="circular asterisk icon"></i>
         Champs obligatoires
       </div>
-      <div class="field">
-        <label>Plateformes</label>
-        <div class="inline fields">
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>ADSL</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>SAT</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>TNT</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>Cable / Fibre</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>CPLAY</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>PC/MAC</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>Tablette</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="fruit">
-                <label>Smartphone</label>
-            </div>
-          </div>
-        </div>
         <div class="field">
-          <label>Support ou type</label>
+          <label>Typologie</label>
           <div class="ui left labeled input">
-            <input type="text" placeholder="ADSL: Bouygues, Free, SFR, Orange,…">
+            <input type="text" placeholder="Remplir la typologie..." ng-model="doc.properties['incident_schema:typologie']">
               <div class="ui corner label">
                 <i class="icon asterisk"></i>
               </div>
           </div>
         </div>
+
         <div class="field">
           <label>Titre</label>
           <div class="ui left labeled input">
-            <input type="text" placeholder="Titre">
+            <input type="text" placeholder="Titre" ng-model="doc.properties['dc:title']">
               <div class="ui corner label">
                 <i class="icon asterisk"></i>
               </div>
           </div>
         </div>
+
         <div class="field">
-          <label>Descriptif</label>
+          <label>Priorité</label>
+          <div class="inline fields">
+          <div class="field" ng-repeat="value in priorite">
+            <div class="ui radio">
+              <input type="radio" name="priorite" value="{{value.id}}" ng-model="doc.properties['incident:priorite']">
+                <label>{{value.label}}</label>
+            </div>
+          </div>
+        </div>
+
+  
+        <div class="field">
+          <label>Opérateur</label>
           <div class="ui left labeled input">
-            <textarea placeholder="L'incident se produit lorsque…"></textarea>
+            <input type="text" placeholder="ADSL: Bouygues, Free, SFR, Orange,…" ng-model="doc.properties['incident:operateur']">
+              <div class="ui corner label">
+                <i class="icon asterisk"></i>
+              </div>
+          </div>
+        </div>
+        
+        <div class="field">
+          <label>Descriptif Client</label>
+          <div class="ui left labeled input">
+            <textarea placeholder="L'incident se produit lorsque…" ng-model="doc.properties['incident:discours-client']"></textarea>
             <div class="ui corner label">
               <i class="icon asterisk"></i>
             </div>
           </div>
         </div>
+        
         <div class="field">
-          <label>Discours client</label>
+          <label>Complément</label>
           <div class="ui left labeled input">
-            <textarea placeholder="Le client indique que…"></textarea>
+            <textarea placeholder="Ajout" ng-model="doc.properties['incident:complement']"></textarea>
             <div class="ui corner label">
               <i class="icon asterisk"></i>
             </div>
@@ -130,11 +103,6 @@
                 <div class="item" data-value="...">...</div>
               </div>
           </div>
-        </div>
-        <div class="field">
-          <label>Version cache</label>
-          <input placeholder="Version" type="text">
-        </div>
         <div class="segment">
           <a href="incident_view.html" class="ui blue submit button">Créer</a>
           <a href="dashboard.html" class="ui right floated button"> Annuler </a>

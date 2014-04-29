@@ -1,77 +1,72 @@
 
-<div id="incidentFormMenu" class="two wide middle column">
-  <div class="sixteen wide column">
-    <div class="ui inverted animated selection list">
-      <div class="item active">
-        Menu 1
-      </div>
-      <div class="item">
-        Menu 2
-      </div>
-      <div class="item">
-        Menu 3
-      </div>
-    </div>
-  </div>
-</div>
-<div id="incidentView" class="fourteen wide left column">
+<div id="incidentView">
   <div class="ui breadcrumb">
-    <a class="section" href="dashboard.html">Dashboard</a>
+    <a class="section" ng-click="goToDashboard()">Dashboard</a>
     <div class="divider"> / </div>
-    <div class="active section">Incident N° 345678900-ABC</div>
+    <div class="active section">Incident N° {{doc.uid}}</div>
   </div>
   <a href="history.html" class="tiny ui right floated red button">
     <i class="time icon"></i>
     Historique
   </a>
-  <a href="incident_form.html" class="tiny ui right floated button">
+  <a ng-click="edit()" class="tiny ui right floated button">
     <i class="edit icon"></i>
     Editer
   </a>
   <h2 class="ui header">
-    Incident N° 345678900-ABC
+    Incident N° {{doc.properties['incident:numero']}}
     <span class="ui label">
       créé le
-      <span class="detail">24 Janvier 2014</span>
+      <span class="detail">{{doc.properties['dc:created'] | date: 'medium'}}</span>
     </span>
     <span class="ui label">
       par
-      <span class="detail">Bruce Willis</span>
+      <span class="detail">{{doc.properties['dc:creator']}}</span>
     </span>
   </h2>
   <div class="container">
     <div class="ui form segment">
       <div class="ui two column grid">
         <div class="column formlabel">
-          <label>Plateforme</label>
+          <label>Typologie</label>
         </div>
         <div class="column formField">
-          <span class="">ADSL</span>
+          <span class="">{{doc.properties['incident_schema:typologie']}}</span>
         </div>
-        <div class="column formlabel">
-          <label>Support ou Type</label>
-        </div>
-        <div class="column formField">
-          <span class="">Orange</span>
-        </div>
+        
         <div class="column formlabel">
           <label>Titre</label>
         </div>
         <div class="column formField">
-          <span class="">Problème d'accès au menu</span>
+          <span class="">{{doc.properties['dc:title']}}</span>
         </div>
+        
         <div class="column formlabel">
-          <label>Descriptif</label>
+          <label>Priorité</label>
         </div>
         <div class="column formField">
-          <span class="">Lorsque le client fait ceci, il se passe cela
-          </span>
+          <span class="">{{doc.properties['incident:priorite']}}</span>
         </div>
+        
         <div class="column formlabel">
-          <label>Discours client</label>
+          <label>Opérateur</label>
         </div>
         <div class="column formField">
-          <span class="">Il ajoute aussi telle chose</span>
+          <span class="">{{doc.properties['incident:operateur']}}</span>
+        </div>
+        
+        <div class="column formlabel">
+          <label>Descriptif client</label>
+        </div>
+        <div class="column formField">
+          <span class="">{{doc.properties['incident:discours-client']}}</span>
+        </div>
+        
+        <div class="column formlabel">
+          <label>Complément</label>
+        </div>
+        <div class="column formField">
+          <span class="">{{doc.properties['incident:complement']}}</span>
         </div>
       </div>
     </div>

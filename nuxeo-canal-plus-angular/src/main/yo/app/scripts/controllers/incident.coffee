@@ -3,11 +3,11 @@ angular.module("nuxeoCanalPlus")
 .controller("IncidentCreateCtrl", ['$scope','nxSession','$location','plateformes', 'priorite',($scope,nxSession,$location,plateformes,priorite)->
   $scope.plateformes = plateformes
   $scope.priorite = priorite
-  $scope.doc = {type: "File", properties:{}}
+  $scope.doc = {type: "IncidentCommercial", properties:{}}
 
-  $scope.save = ()->
+  $scope.create = ()->
     $scope.doc.name = $scope.doc.properties["dc:title"]
-    $scope.doc = nxSession.createDocument("/default-domain/workspaces/canal",$scope.doc).then (doc)->
+    $scope.doc = nxSession.createDocument("/incidents",$scope.doc).then (doc)->
       $location.path ["/incident",doc.uid,"view"].join("/")
 
   $scope.cancel = ()->
@@ -18,7 +18,8 @@ angular.module("nuxeoCanalPlus")
 
 
   ])
-.controller("IncidentEditCtrl", ['$scope','nxSession','defaultSchemas','$routeParams','$location',($scope, nxSession,defaultSchemas,$routeParams,$location)->
+.controller("IncidentEditCtrl", ['$scope','nxSession','defaultSchemas','$routeParams','$location', 'priorite', ($scope, nxSession,defaultSchemas,$routeParams,$location,priorite)->
+  $scope.priorite = priorite
   $scope.doc = nxSession.getDocument($routeParams.docId).fetch(defaultSchemas)
 
   $scope.goToDashboard = ()->
@@ -32,7 +33,8 @@ angular.module("nuxeoCanalPlus")
     $location.path "/incident/" + doc.uid + "/view"
 ])
 
-.controller("IncidentViewCtrl", ['$scope','nxSession','$routeParams','$location','defaultSchemas',($scope, nxSession,$routeParams,$location,defaultSchemas)->
+.controller("IncidentViewCtrl", ['$scope','nxSession','$routeParams','$location','defaultSchemas', 'priorite', ($scope, nxSession,$routeParams,$location,defaultSchemas, priorite)->
+  $scope.priorite = priorite
   $scope.doc = nxSession.getDocument($routeParams.docId).fetch(defaultSchemas)
 
   $scope.edit = ()->

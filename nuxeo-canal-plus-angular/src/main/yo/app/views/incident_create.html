@@ -1,20 +1,6 @@
 
-<div id="incidentFormMenu" class="two wide middle column">
-  <div class="sixteen wide column">
-    <div class="ui inverted animated selection list">
-      <div class="item active">
-        Menu 1
-      </div>
-      <div class="item">
-        Menu 2
-      </div>
-      <div class="item">
-        Menu 3
-      </div>
-    </div>
-  </div>
-</div>
-<div id="incidentFormContent" class="fourteen wide left column">
+
+<div id="incidentFormContent">
   <div class="ui breadcrumb">
     <a class="section" href="#/">Dashboard</a>
     <div class="divider"> / </div>
@@ -24,7 +10,7 @@
 
   <h2 ng-hide="doc.uid" class="ui header">Nouvel incident</h2>
   <h2 ng-show="doc.uid" class="ui header">Editer l'incident</h2>
-<pre>{{doc}}</pre>
+
   <div class="container">
     <div class="ui form segment">
       <div class="ui horizontal icon divider">
@@ -36,7 +22,7 @@
         <div class="field">
           <label>Typologie</label>
           <div class="ui left labeled input">
-            <input type="text" placeholder="Remplir la typologie..." ng-model="doc.properties['incident:typologie']">
+            <input type="text" placeholder="Remplir la typologie..." ng-model="doc.properties['incident_schema:typologie']">
               <div class="ui corner label">
                 <i class="icon asterisk"></i>
               </div>
