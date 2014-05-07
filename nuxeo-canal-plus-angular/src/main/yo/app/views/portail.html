@@ -1,0 +1,54 @@
+<div id="portail" class="ui celled grid portail" ng-controller="PortailCtrl">
+  <div class="row">
+      <div  class="column" >
+        <a href="#/km" class="ui tiny right floated red button">
+          <i class="block layout icon"></i>
+          Dashboard
+        </a>
+        <div class="ui breadcrumb">
+          <a class="section" href="#/km">Dashboard</a>
+          <div class="divider"> / </div>
+          <div class="active section">Portail {{portailName}}</div>
+        </div>
+     </div>
+  </div>
+
+  <div id="resultBox" class="row">
+    <div class="column">
+          <div class="ui divided list">
+            <div ng-repeat="doc in docs" class="item" >
+              <div class="ui label right floated date">{{doc.lastModified}}</div>
+              <div class="ui label right floated">{{doc.properties['dc:creator']}}</div>
+                <i onclick="if ($('#{{doc.uid}}').css('display') == 'none') {$('#{{doc.uid}}').slideDown();$(this).removeClass();$(this).addClass('minus icon');} else {$('#{{doc.uid}}').slideUp();$(this).removeClass();$(this).addClass('plus icon');}" class="plus icon"></i>
+              <div class="content">
+                <div class="header" ng-click="navigate(doc)">{{doc.title}}</div>
+              </div>
+              <div id="{{doc.uid}}" style="display:none"> 
+                <h2 class="ui header">
+                  <span class="ui label">
+                     Décodeur
+                    <span class="detail">{{doc.properties['know:decodeur']}}</span>
+                  </span>
+                  <span class="ui label">
+                     Portail
+                    <span class="detail">{{doc.properties['know:portail']}}</span>
+                  </span>
+                  <span class="ui label">
+                     Thème
+                    <span class="detail">{{doc.properties['know:theme']}}</span>
+                  </span>
+                  <span class="ui label">
+                     Rubrique
+                    <span class="detail">{{doc.properties['know:rubrique']}}</span>
+                  </span>
+                  <span class="ui label">
+                     Type
+                    <span class="detail">{{doc.properties['know:type']}}</span>
+                  </span>
+                </h2>
+              </div>
+            </div>
+          </div>
+      </div>
+   </div>
+</div>

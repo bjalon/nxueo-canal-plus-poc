@@ -121,8 +121,14 @@ angular.module('nxSession',['ng'])
           else
             $q.reject("Response was not a collection")
 
-      query: (query)->
-        $http.get(apiRootPath + @getResourceUrl() + "/@search?query="+query).then (response)->
+      query: (query,pagesize)->
+        queryUrl = apiRootPath + @getResourceUrl() + "/@search?query="+query
+        if pagesize?
+          queryUrl += "&pageSize=" + pagesize
+        $http.get(queryUrl,
+          headers:
+              "X-NXDocumentProperties": "*"
+          ).then (response)->
           docs = response.data.entries
           if(angular.isArray(docs))
             return docs.map( (response)-> new nxDocument(response.uid,response))

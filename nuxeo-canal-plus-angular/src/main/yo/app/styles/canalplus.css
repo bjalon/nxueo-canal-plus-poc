@@ -75,6 +75,13 @@ h2.ui.header {
 	border-bottom:0.2em solid #f00 !important;
 }
 
+
+.ui.items .item.panel:hover,
+.ui.items .item.panel:nth-of-type(n):hover {
+	border-bottom:0.2em solid grey !important;
+}
+
+
 .ui.red.segment {
 	border-top: 0.2em solid #f00;
 }
@@ -159,3 +166,24 @@ h2.ui.header {
 #incidentView .ui.two.column.grid > .formField,
 #incidentView .ui.grid > .two.column.row > .formField {
 	width: 80%;
+
+}
+
+i {cursor: pointer; cursor: hand; }
+
+
+.plateforme > input[type=radio]{
+  display:none;
+}
+input[type=radio] + i img{
+  cursor:pointer;
+  border:3px solid transparent;
+}
+input[type=radio]:checked + i img{
+  border:3px solid #f00;
+}
+
+
+ .hiddenLink {
+  display:none;
+}

@@ -1,11 +1,4 @@
-addons
-nuxeo-*
-.checkstyle
-.metadata
-.mylar
-.pmd
-
-# common stuff
+# common ignores
 .classpath
 .project
 .settings
@@ -28,6 +21,3 @@ target
 *.gpd.*
 *cpJar*
 dependency-tree.log
-build.properties
-marketplace
-

@@ -1,0 +1,50 @@
+
+<div id="articleView">
+  <div class="ui breadcrumb">
+    <a class="section" ng-click="goToDashboard()">Dashboard</a>
+    <div class="divider"> / </div>
+    <div class="active section">Article : {{doc.title}}</div>
+  </div>
+  <a class="tiny ui right floated red button">
+    <i class="time icon"></i>
+    Historique
+  </a>
+  <a class="tiny ui right floated button">
+    <i class="edit icon"></i>
+    Editer
+  </a>
+
+  <div class="container">
+    <h2 class="ui header">
+      <span class="ui label">
+        créé le
+        <span class="detail">{{doc.properties['dc:created'] | date: 'medium'}}</span>
+      </span>
+      <span class="ui label">
+        par
+        <span class="detail">{{doc.properties['dc:creator']}}</span>
+      </span>
+      <span class="ui label">
+         Décodeur
+        <span class="detail">{{doc.properties['know:decodeur']}}</span>
+      </span>
+      <span class="ui label">
+         Portail
+        <span class="detail">{{doc.properties['know:portail']}}</span>
+      </span>
+      <span class="ui label">
+         Thème
+        <span class="detail">{{doc.properties['know:theme']}}</span>
+      </span>
+      <span class="ui label">
+         Rubrique
+        <span class="detail">{{doc.properties['know:rubrique']}}</span>
+      </span>
+      <span class="ui label">
+         Type
+        <span class="detail">{{doc.properties['know:type']}}</span>
+      </span>
+    </h2>
+  <div class="column" id="contenu" />
+  </div>
+</div>

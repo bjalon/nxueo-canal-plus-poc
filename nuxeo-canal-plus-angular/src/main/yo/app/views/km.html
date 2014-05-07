@@ -1,0 +1,148 @@
+<div class="ui four column divided grid">
+  <div class="row">
+    <div class="column">
+
+
+     <div class="ui items">
+      <div class="item" style="min-height:200px;">
+        <ul rn-carousel rn-carousel-indicator='true' >
+          <li><img src="images/1.jpg"></li>
+          <li><img src="images/2.jpg"></li>
+          <li><img src="images/3.jpg"></li>
+        </ul>
+      </div>
+      <nxqlpanel2 ptitle="Dépêches à la une :" nxql="SELECT * FROM Depeche WHERE depeche:aLaUne = 1 ORDER BY dc:created DESC"/>
+    </div>
+    <div class="ui vertical menu">
+      <div class="ui header item">
+        <i onclick="if ($('#menuUseful').css('display') == 'none') {$('#menuUseful').slideDown();$(this).removeClass('plus');$(this).removeClass('plus');} else {$('#menuUseful').slideUp();$(this).addClass('plus');}" class="minus icon"></i>
+        DOCUMENTS LES + UTILES
+      </div>
+      <div id="menuUseful">
+        <a href="http://www.google.com" class="item">OFFRE NATIONALE</a>
+        <a href="http://www.google.com" class="item">ENVOI MATERIEL</a>
+        <a href="http://www.google.com" class="item">PORTAIL CIRCULAIRE</a>
+        <a href="http://www.google.com" class="item">MIGRATION</a>
+        <a href="http://www.google.com" class="item">PLANNING PRELEVEMENTS 2014</a>
+      </div>
+    </div>
+     </div>
+
+    </div>
+    <div class="column">
+
+
+     <div class="ui items">
+      <div class="item"  style="min-height:200px;">
+        <div class="image">
+          <ul rn-carousel rn-carousel-indicator='true' >
+            <li><img src="images/3.jpg"></li>
+            <li><img src="images/2.jpg"></li>
+            <li><img src="images/1.jpg"></li>
+          </ul>
+        </div>
+      </div>
+      <nxqlpanel ptitle="Base incidents" nxql="SELECT * FROM Article"/>
+      <div class="item" style="min-height:200px">
+        <div class="content">
+          <a class="setting ui left corner label"><i class="setting icon"></i></a>
+        <a onclick="if ($('#gUsage').css('display') == 'none') {$('#gUsage').slideDown();$(this).removeClass('plus');$(this).removeClass('plus');} else {$('#gUsage').slideUp();$(this).addClass('plus');}" class="minus ui right corner label"><i class="minus icon"></i></a>
+          <div class="name">GUIDE D'USAGE</div>
+        </div>
+        <div id="gUsage"  class="image"><img src="images/settings.png"></div>
+      </div>
+     </div>
+    </div>
+
+
+    <div class="column">
+
+
+    <div class="ui vertical menu">
+      <div class="ui header item">
+        <i onclick="if ($('#menuspace').css('display') == 'none') {$('#menuspace').slideDown();$(this).removeClass('plus');} else {$('#menuspace').slideUp();$(this).addClass('plus');}" class="minus icon"></i>
+        PORTAILS
+      </div>
+      <div id="menuspace">
+        <a href="#/portail/ADSL/" class="item">ADSL</a>
+        <a href="#/portail/BACK/" class="item">BACK OFFICE</a>
+        <a href="#/portail/PRO" class="item">CANALPRO/BARSAT</a>
+        <a href="#/portail/CLIENT" class="item">ESPACE CLIENT</a>
+        <a href="#/portail/FINANCES" class="item">FINANCES</a>
+        <a href="#/portail/ABO" class="item">GESTION ABO</a>
+        <a href="#/portail/MANAGEMENT" class="item">MANAGEMENT</a>
+        <a href="#/portail/TECHNO" class="item">NOUVELLES TECHNO</a>
+        <a href="#/portail/OFFRES" class="item">OFFRES</a>
+        <a href="#/portail/OUTILS" class="item">OUTILS</a>
+        <a href="#/portail/PROGRAMMES" class="item">PROGRAMMES</a>
+        <a href="#/portail/RETENTION" class="item">RETENTION</a>
+        <a href="h/portail/TECHNIQUE" class="item">TECHNIQUE</a>
+        <a href="#/portail/VIP" class="item">UCS/VIP</a>
+        <a href="#/portail/autres" class="item">Autres PORTAILS</a>
+      </div>
+    </div>
+    <div class="ui vertical menu">
+      <div class="ui header item">
+        <i onclick="if ($('#menuWhatNew').css('display') == 'none') {$('#menuWhatNew').slideDown();$(this).removeClass('plus');} else {$('#menuWhatNew').slideUp();$(this).addClass('plus');}" class="minus icon"></i>
+        QUOI DE NEUF
+      </div>
+      <div id="menuWhatNew">
+        <a href="http://www.google.com" class="item">Nouveautés !</a>
+        <a href="http://www.google.com" class="item">Modifiés !</a>
+        <a href="http://www.google.com" class="item">Les + consultés</a>
+        <a href="http://www.google.com" class="item">ESPACE CLIENT</a>
+      </div>
+    </div>
+
+
+    </div>
+
+
+    <div class="column">
+
+    <div class="ui vertical menu">
+      <div class="ui header item">
+        <i onclick="if ($('#menuInfo').css('display') == 'none') {$('#menuInfo').slideDown();$(this).removeClass('plus');} else {$('#menuInfo').slideUp();$(this).addClass('plus');}" class="minus icon"></i>
+       Mes Informations
+      </div>
+      <div id="menuInfo">
+        <a href="http://www.google.com" class="item">Mes Formations</a>
+        <a href="http://www.google.com" class="item">Mes Quiz</a>
+        <a href="http://www.google.com" class="item">Mes Favoris</a>
+        <a href="http://www.google.com" class="item">Mes Briefs</a>
+      </div>
+    </div>
+
+    <div class="ui vertical menu">
+      <div class="ui header item">
+        <i onclick="if ($('#menuTools').css('display') == 'none') {$('#menuTools').slideDown();$(this).removeClass('plus');} else {$('#menuTools').slideUp();$(this).addClass('plus');}" class="minus icon"></i>
+       Liens OUTILS/Sites
+      </div>
+      <div id="menuTools">
+        <a href="http://www.google.com" class="item">myCANAL</a>
+        <a href="http://www.google.com" class="item">NAVI+</a>
+        <a href="http://www.google.com" class="item">Point relais</a>
+        <a href="http://www.google.com" class="item">Eligibilité</a>
+        <a href="http://www.google.com" class="item">Espace Client</a>
+        <a href="http://www.google.com" class="item">Canalplus.fr</a>
+        <a href="http://www.google.com" class="item">Canalsat.fr</a>
+        <a href="http://www.google.com" class="item">Communauté d'Entraide</a>
+        <a href="http://www.google.com" class="item">Autre lien</a>
+      </div>
+    </div>
+
+       <div class="ui items">
+        <div class="item" style="min-height:200px">
+            <a class="minus ui corner label"><i class="minus icon"></i></a>
+            <a class="setting ui left corner label"><i class="setting icon"></i></a>
+          <div class="content">
+            <div class="name">REVUE DE PRESSE DU JOUR</div>
+          </div>
+          <div class="image"><img src="images/revuedepresse.png"></div>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+

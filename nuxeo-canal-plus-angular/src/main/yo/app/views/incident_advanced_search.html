@@ -1,0 +1,63 @@
+<div id="advancedSearch" class="ui celled grid advanced_search">
+  <div class="row">
+      <div id="advancedSearchResult" class="column" >
+        <a href="#/" class="ui tiny right floated red button">
+          <i class="block layout icon"></i>
+          Dashboard
+        </a>
+        <div class="ui breadcrumb">
+          <a class="section" href="#/">Dashboard</a>
+          <div class="divider"> / </div>
+          <div class="active section">Recherche avancée</div>
+        </div>
+     </div>
+</div>
+
+  <div class="row">
+    <div class="eight wide column" style="">
+
+    <div class="ui form">
+        <div class="inline field">
+          <label>Mot(s) clé(s) : </label>
+          <input ng-model="searchModel.keyword" type="text" placeholder="Mots clé(s)">
+        </div>
+    </div>
+  </div>
+    <div class="eight wide column" style="">
+      <div class="ui form">
+        <div class="segment">
+          <a ng-click="search()" class="ui right floated button">Filtrer</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+  <div id="resultBox" style="display:none" class="row">
+
+    <div class="column">
+          <div class="ui divided list">
+            <div ng-repeat="doc in docs" class="item" >
+              <div class="ui label right floated date">{{doc.lastModified}}</div>
+              <div class="ui label right floated">{{doc.properties['dc:creator']}}</div>
+                <i onclick="if ($('#{{doc.uid}}').css('display') == 'none') {$('#{{doc.uid}}').slideDown();$(this).removeClass();$(this).addClass('minus icon');} else {$('#{{doc.uid}}').slideUp();$(this).removeClass();$(this).addClass('plus icon');}" class="plus icon"></i>
+              <div class="content">
+                <div class="header" ng-click="navigate(doc)">{{doc.title}}</div>
+              </div>
+              <div id="{{doc.uid}}" style="display:none"> 
+                <h2 class="ui header">
+                  <span class="ui label">
+                     Opérateur
+                    <span class="detail">{{doc.properties['incident:operateur']}}</span>
+                  </span>
+                </h2>
+                <div id="content-{{doc.uid}}">
+
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+   </div>
+
+</div>

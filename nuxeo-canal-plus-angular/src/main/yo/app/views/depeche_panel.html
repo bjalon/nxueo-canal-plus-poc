@@ -1,0 +1,12 @@
+<div class="item">
+  <div class="content">
+    <div class="name">{{title}}</div>
+      <div class="ui list">
+        <div class="item panel"  ng-click="navigate(doc)" ng-repeat="doc in docs" >
+          <div class="header">{{doc.title}}</div>
+          {{doc.properties['depeche:accroche']}}
+        </div>
+      </div>
+  </div>
+</div>
+

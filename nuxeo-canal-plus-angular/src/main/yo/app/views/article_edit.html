@@ -1,0 +1,113 @@
+
+<div id="incidentFormMenu" id="incidentForm" class="two wide middle column">
+  <div class="sixteen wide column">
+    <div class="ui inverted animated selection list">
+      <div class="item active">
+        Menu 1
+      </div>
+      <div class="item">
+        Menu 2
+      </div>
+      <div class="item">
+        Menu 3
+      </div>
+    </div>
+  </div>
+</div>
+<div id="incidentFormContent" class="fourteen wide left column">
+  <div class="ui breadcrumb">
+    <a class="section" href="dashboard.html">Dashboard</a>
+    <div class="divider"> / </div>
+    <div class="active section">Nouvel incident</div>
+  </div>
+  <h2 class="ui header">Nouvel incident</h2>
+  <div class="container">
+    <div class="ui form segment">
+      <div class="ui horizontal icon divider">
+        <i class="circular asterisk icon"></i>
+        Champs obligatoires
+      </div>
+        <div class="field">
+          <label>Typologie</label>
+          <div class="ui left labeled input">
+            <input type="text" placeholder="Remplir la typologie..." ng-model="doc.properties['incident_schema:typologie']">
+              <div class="ui corner label">
+                <i class="icon asterisk"></i>
+              </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Titre</label>
+          <div class="ui left labeled input">
+            <input type="text" placeholder="Titre" ng-model="doc.properties['dc:title']">
+              <div class="ui corner label">
+                <i class="icon asterisk"></i>
+              </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Priorité</label>
+          <div class="inline fields">
+          <div class="field" ng-repeat="value in priorite">
+            <div class="ui radio">
+              <input type="radio" name="priorite" value="{{value.id}}" ng-model="doc.properties['incident:priorite']">
+                <label>{{value.label}}</label>
+            </div>
+          </div>
+        </div>
+
+  
+        <div class="field">
+          <label>Opérateur</label>
+          <div class="ui left labeled input">
+            <input type="text" placeholder="ADSL: Bouygues, Free, SFR, Orange,…" ng-model="doc.properties['incident:operateur']">
+              <div class="ui corner label">
+                <i class="icon asterisk"></i>
+              </div>
+          </div>
+        </div>
+        
+        <div class="field">
+          <label>Descriptif Client</label>
+          <div class="ui left labeled input">
+            <textarea placeholder="L'incident se produit lorsque…" ng-model="doc.properties['incident:discours-client']"></textarea>
+            <div class="ui corner label">
+              <i class="icon asterisk"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="field">
+          <label>Complément</label>
+          <div class="ui left labeled input">
+            <textarea placeholder="Ajout" ng-model="doc.properties['incident:complement']"></textarea>
+            <div class="ui corner label">
+              <i class="icon asterisk"></i>
+            </div>
+          </div>
+        </div>
+        <div class="ui horizontal icon divider">
+          <i class="circular edit icon"></i>
+          Détails Techniques
+        </div>
+        <div class="field">
+          <label>Version logicielle</label>
+          <div class="ui fluid selection dropdown">
+            <div class="text">Select</div>
+            <i class="dropdown icon"></i>
+            <input type="hidden" name="version logicielle">
+              <div class="menu">
+                <div class="item" data-value="...">...</div>
+                <div class="item" data-value="...">...</div>
+              </div>
+          </div>
+        <div class="segment">
+          <a href="incident_view.html" class="ui blue submit button">Créer</a>
+          <a href="dashboard.html" class="ui right floated button"> Annuler </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

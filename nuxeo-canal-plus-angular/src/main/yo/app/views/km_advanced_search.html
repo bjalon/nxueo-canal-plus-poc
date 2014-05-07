@@ -1,0 +1,197 @@
+
+
+<div id="advancedSearch" class="ui celled grid advanced_search">
+  <div class="row">
+      <div id="advancedSearchResult" class="column" >
+        <a href="#/" class="ui tiny right floated red button">
+          <i class="block layout icon"></i>
+          Dashboard
+        </a>
+        <div class="ui breadcrumb">
+          <a class="section" href="#/">Dashboard</a>
+          <div class="divider"> / </div>
+          <div class="active section">Recherche avancée</div>
+        </div>
+     </div>
+</div>
+
+  <div class="row">
+    <div class="eight wide column" style="">
+
+    <div class="ui form">
+        <div class="inline field">
+          <label>Mot(s) clé(s) : </label>
+          <input ng-model="searchModel.keyword" type="text" placeholder="Mots clé(s)">
+        </div>
+
+        <div class="inline field">
+          <label>Portails : </label>
+          <div class="ui selection portail dropdown">
+            <div class="text">Sélectionner une valeur</div>
+            <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="ADSL">ADSL</div>
+                <div class="item" data-value="BACK">BACK OFFICE</div>
+                <div class="item" data-value="PRO">CANALPRO/BARSAT</div>
+                <div class="item" data-value="CLIENT">ESPACE CLIENT</div>
+                <div class="item" data-value="FINANCES">FINANCES</div>
+                <div class="item" data-value="ABO">GESTION ABO</div>
+                <div class="item" data-value="MANAGEMENT">MANAGEMENT</div>
+                <div class="item" data-value="TECHNO">NOUVELLES TECHNO</div>
+                <div class="item" data-value="OFFRES">OFFRES</div>
+                <div class="item" data-value="OUTILS">OUTILS</div>
+                <div class="item" data-value="PROGRAMMES">PROGRAMMES</div>
+                <div class="item" data-value="RETENTION">RETENTION</div>
+                <div class="item" data-value="TECHNIQUE">TECHNIQUE</div>
+                <div class="item" data-value="VIP">UCS/VIP</div>
+                <div class="item" data-value="CIRCULAIRES">CIRCULAIRES</div>
+                <div class="item" data-value="3910">3910</div>
+                <div class="item" data-value="OPP">OPP</div>
+                <div class="item" data-value="PRE">PRE-PAYEE</div>
+                <div class="item" data-value="DROITS">DROITS</div>
+              </div>
+          </div>
+        </div>
+
+        <div class="inline field">
+          <label>Type de document : </label>
+          <div class="ui selection docType dropdown">
+            <div class="text">Sélectionner une valeur</div>
+            <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="Process">Process</div>
+                <div class="item" data-value="Circulaires">Circulaires</div>
+                <div class="item" data-value="Depeche">Dépêche</div>
+                <div class="item" data-value="Incidents">Base Incidents</div>
+                <div class="item" data-value="tous">Tous</div>
+              </div>
+          </div>
+        </div>
+
+
+        <div class="inline field">
+          <label>Décodeur : </label>
+          <div class="ui selection decodeur dropdown">
+            <div class="text">Sélectionner une valeur</div>
+            <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="G1">G1 MEDIASAT </div>
+                <div class="item" data-value="G3">G3 MMAX</div>
+                <div class="item" data-value="G4">G4 +LE CUBE</div>
+                <div class="item" data-value="G5">G5 +LE CUBE</div>
+                <div class="item" data-value="DualS">Dual'S</div>
+                <div class="item" data-value="DualT">Dual'T</div>
+                <div class="item" data-value="Free/Alice">Free/Alice</div>
+                <div class="item" data-value="Orange">Orange</div>
+                <div class="item" data-value="Bouygues/Darty">Bouygues/Darty</div>
+                <div class="item" data-value="Virgin">Virgin</div>
+                <div class="item" data-value="SFR">SFR</div>
+                <div class="item" data-value="TNT+">TNT+</div>
+                <div class="item" data-value="Carte seule">Carte seule</div>
+              </div>
+          </div>
+        </div>
+
+        <div class="ui fields">
+          <div class="inline field">
+              <label>Plateforme : </label>
+              <label style="margin-right: 20px" class="plateforme" for="SAT">
+                <input id="SAT" name="plateforme" type="radio"><i class="icon"><img width="35px" src="images/satellite.png"/></i>
+              </label>
+              <label style="margin-right: 20px" class="plateforme" for="ADSL">
+                <input id="ADSL" name="plateforme" type="radio"><i class="icon"><img width="35px" src="images/adsl.png"/></i>
+              </label>
+              <label style="margin-right: 20px" class="plateforme" for="CABLE-FIBRE">
+                <input id="CABLE-FIBRE" name="plateforme" type="radio"><i class="icon"><img width="35px" src="images/cable.png"/></i>
+              </label>
+              <label style="margin-right: 20px" class="plateforme" for="mycanal">
+                <input id="mycanal" name="plateforme" type="radio"><i class="icon"><img width="35px" src="images/mycanal.png"/></i>
+              </label>
+              <label style="margin-right: 20px" class="plateforme" for="TNT">
+                <input id="TNT" name="plateforme" type="radio"><i class="icon"><img width="35px" src="images/tnt.png"/></i>
+              </label>
+          </div>
+        </div>
+    </div>
+  </div>
+    <div class="eight wide column" style="">
+      <div class="ui form">
+        <div class="inline field">
+          <label>Période : </label>  
+          <input ng-model="searchModel.periode" type="text" id="periode"/>
+        </div>
+
+        <h3>Qualification :</h3>   
+
+        <div class="inline field">
+          <label>Thème : </label>
+          <div class="ui selection theme dropdown">
+            <div class="text">Sélectionner une valeur</div>
+            <i class="dropdown icon"></i>
+              <div class="menu">
+                <div ng-repeat="theme in themes">
+                  <div class="item" data-value="theme.properties.id">{{theme.properties.label}}</div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="inline field">
+          <label>Rubrique : </label>
+          <div class="ui selection rubrique dropdown">
+            <div class="text">Sélectionner une valeur</div>
+            <i class="dropdown icon"></i>
+              <div class="menu" >
+                  <div ng-repeat="rubrique in rubriques" class="item" data-value="rubrique.properties.id">{{rubrique.properties.label}}</div>
+              </div>
+          </div>
+        </div>
+
+        <div class="segment">
+          <a ng-click="search()" class="ui right floated button">Filtrer</a>
+        </div>
+      </div>
+    </div>
+</div>
+  <div id="resultBox" style="display:none" class="row">
+
+    <div class="column">
+          <div class="ui divided list">
+            <div ng-repeat="doc in docs" class="item" >
+              <div class="ui label right floated date">{{doc.lastModified}}</div>
+              <div class="ui label right floated">{{doc.properties['dc:creator']}}</div>
+                <i onclick="if ($('#{{doc.uid}}').css('display') == 'none') {$('#{{doc.uid}}').slideDown();$(this).removeClass();$(this).addClass('minus icon');} else {$('#{{doc.uid}}').slideUp();$(this).removeClass();$(this).addClass('plus icon');}" class="plus icon"></i>
+              <div class="content">
+                <div class="header" ng-click="navigate(doc)">{{doc.title}}</div>
+              </div>
+              <div id="{{doc.uid}}" style="display:none"> 
+                <h2 class="ui header">
+                  <span class="ui label">
+                     Décodeur
+                    <span class="detail">{{doc.properties['know:decodeur']}}</span>
+                  </span>
+                  <span class="ui label">
+                     Portail
+                    <span class="detail">{{doc.properties['know:portail']}}</span>
+                  </span>
+                  <span class="ui label">
+                     Thème
+                    <span class="detail">{{doc.properties['know:theme']}}</span>
+                  </span>
+                  <span class="ui label">
+                     Rubrique
+                    <span class="detail">{{doc.properties['know:rubrique']}}</span>
+                  </span>
+                  <span class="ui label">
+                     Type
+                    <span class="detail">{{doc.properties['know:type']}}</span>
+                  </span>
+                </h2>
+                <div  ng-init="remplirContenu(doc);"></div>
+              </div>
+            </div>
+          </div>
+      </div>
+   </div>
+
+</div>

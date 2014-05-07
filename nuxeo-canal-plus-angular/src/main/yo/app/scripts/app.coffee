@@ -1,7 +1,7 @@
 "use strict"
-angular.module("nuxeoCanalPlus", ['nxSession'])
+angular.module("nuxeoCanalPlus", ['nxSession', 'angular-carousel'])
 .value("nxUrl", "/nuxeo/api/v1" )
-.value("defaultSchemas", ["dublincore", "incident", "incident_schema"])
+.value("defaultSchemas", ["dublincore", "incident", "incident_schema", "connaissance"])
 .value("plateformes", [
     id: "SAT"
     label: "SAT"
@@ -61,13 +61,28 @@ angular.module("nuxeoCanalPlus", ['nxSession'])
     templateUrl: "views/incident_view.html"
     controller: "IncidentViewCtrl"
   )
-  .when("/search"
+  .when("/search/*searchTerm"
     templateUrl: "views/search.html"
-    controller: "DashboardCtrl"
+    controller: "SearchCtrl"
   )
-  .when("/advanced_search"
-    templateUrl: "views/advanced_search.html"
-    controller: "DashboardCtrl"
+  .when("/km_advanced_search"
+    templateUrl: "views/km_advanced_search.html"
+    controller: "kmAdvSearchCtrl"
   )
-
+  .when("/incident_advanced_search"
+    templateUrl: "views/incident_advanced_search.html"
+    controller: "incidentAdvSearchCtrl"
+  )
+  .when("/km"
+    templateUrl: "views/km.html"
+    controller: "KMCtrl"
+  )
+  .when("/article/*docId/view"
+    templateUrl: "views/article_view.html"
+    controller: "ArticleViewCtrl"
+  )
+  .when("/portail/*portail/"
+    templateUrl: "views/portail.html"
+    controller: "PortailCtrl"
+  )
   .otherwise redirectTo: "/dashboard"

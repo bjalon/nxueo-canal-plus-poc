@@ -246,7 +246,7 @@ module.exports = function (grunt) {
           src: [
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          //  '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yeoman.dist %>/styles/fonts/*'
           ]
         }
@@ -262,9 +262,11 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,txt}',
             '.htaccess',
+//            '<%= yeoman.app %>/components/semantic-ui/build/packaged/fonts/*',
             //Not needed since included in components.js
             //'components/**/*',
             'images/{,*/}*.{gif,webp}',
+            'img/{,*/}*.{gif,webp}',
             'fonts/*',
             'styles/fonts/*',
             'index.html',
@@ -298,7 +300,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'jshint',
-    'test',
+//    'test',
     'coffee',
     'less:dist',
     'useminPrepare',

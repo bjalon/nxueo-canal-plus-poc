@@ -8,55 +8,77 @@
   <title>Canal + / Dashboard</title>
 
 
+  <!-- build:css styles/components.css -->
+    <link href="components/semantic-ui/build/packaged/css/semantic.min.css" rel="stylesheet" type="text/css"/>
+    <link href="components/kalendae/build/kalendae.css" rel="stylesheet" type="text/css" />
+    <link href="components/angular-carousel/dist/angular-carousel.css" rel="stylesheet" type="text/css" />
+  <!-- endbuild -->
+
+
+  <!-- build:css styles/canal.css -->
+  <link href="styles/canalplus.css" rel="stylesheet" type="text/css">
+  <!-- endbuild -->
+
+
+
 </head>
 <body ng-app="nuxeoCanalPlus" id="canal">
-  <div class="header">
-    <div class="ui fixed transparent inverted main menu">
-     <div class="container">
-       <a class="logo item" href="#/"><img src="img/logo_canalplus.gif" alt="Canal +"></a>
-       <div class="right menu">
-         <a href="search.html" class="search icon item">
-           <i class="search icon"></i>
-         </a>
-       </div>
-     </div>
+
+  <nav class="ui fixed menu  navbar" ng-controller="HeaderCtrl">
+    <a class="logo item" onclick="$('.ui.sidebar').sidebar('toggle');return false;" ><img src="img/logo_canalplus.gif" alt="Canal +"></a>
+    <a onclick="$('.ui.sidebar').sidebar('toggle');return false;" class="home inverted item"><i class="ui left home icon"></i>ACCUEIL</a>
+
+    <div class="right  menu">
+      <a href="/nuxeo/kibana/#/dashboard/elasticsearch/Canal+" class="item">
+        Reportings
+      </a>
+      <a href="/nuxeo" class="item">
+        </i>Administration
+      </a>
+      <a ng-class="{item:isActive('incident')}" href="#/incident_advanced_search" class="">
+        Recherche Avancée
+      </a>
+      <a ng-class="{item:isActive('km')}" href="#/km_advanced_search" class="">
+        Recherche Avancée
+      </a>
+      <div class="item action right input">
+        <input ng-model="searchTerm" placeholder="Rechercher..." type="text">
+      <div class="ui icon button" ng-click="doSearch()"><i class="search icon"></i></div>
+</div>
+
     </div>
-  </div>
+  </nav> 
+ 
+    <main class="ui grid">
+      <div class="ui thin floating sidebar">
+        <div id="incidentFormMenu" ng-controller="HeaderCtrl">
+          <div class="ui vertical animated selection menu">
+            <div class="item" ng-class="{active:isActive('incident')}">
+              <a onclick="$('.ui.sidebar').sidebar('toggle');" href="#/">Incidents</a>
+            </div>
+            <div class="item" ng-class="{active:isActive('km')}">
+              <a onclick="$('.ui.sidebar').sidebar('toggle');" href="#/km">Base de connaissance</a>
+            </div>
+            <div class="item">
+              Applications
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column" ng-view />
+    </main>
 
-  <div class="ui celled grid">
-	  <div id="incidentFormMenu" class="two wide middle column">
-	    <div class="sixteen wide column">
-	      <div class="ui inverted animated selection list">
-	        <div class="item active">
-	          <a href="#/">Incidents</a>
-	        </div>
-	        <div class="item">
-	          Base de connaissance
-	        </div>
-	        <div class="item">
-	          Applications
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-
-  	  <div class="fourteen wide left column" ng-view>
-
-
-  </div>
-
-
-
-    <link rel="stylesheet" type="text/css" href="components/semantic-ui/build/packaged/css/semantic.css" />
 
     <!-- build:js scripts/components.js -->
     <script src="components/jquery/jquery.js"></script>
+    <script src="components/kalendae/build/kalendae.standalone.js"></script>
     <script src="components/angular-1.1.x/angular.js"></script>
     <script src="components/angular-1.1.x/angular-resource.js"></script>
     <script src="components/angular-1.1.x/angular-cookies.js"></script>
     <script src="components/angular-1.1.x/angular-sanitize.js"></script>
-
-
+    <script src="components/angular-touch/angular-touch.js"></script>
+    <script src="components/angular-carousel/dist/angular-carousel.js"></script>
+    <script src="components/semantic-ui/build/packaged/javascript/semantic.js" type="text/javascript"></script>
     <!-- endbuild -->
 
 
@@ -64,19 +86,25 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/canal-plus.js"></script>
+    <script src="scripts/controllers/portail.js"></script>
     <script src="scripts/controllers/incident.js"></script>
+    <script src="scripts/controllers/article.js"></script>
     <script src="scripts/directives/panel.js"></script>
+    <script src="scripts/directives/depeche_panel.js"></script>
     <script src="scripts/controllers/breadcrumb.js"></script>
-    <script src="scripts/services/nxNavigation.js"></script>
+    <script src="scripts/controllers/header.js"></script>
+    <script src="scripts/controllers/kmAdvSearch.js"></script>
+    <script src="scripts/controllers/incidentAdvSearch.js"></script>
     <!-- endbuild -->
 
     <!-- build:js(.tmp) scripts/nuxeo-service.js -->
+    <script src="scripts/services/nxNavigation.js"></script>
+    <script src="scripts/services/nxHeader.js"></script>
     <script src="scripts/services/nxSession.js"></script>
     <!-- endbuild -->
-    <link rel="stylesheet" type="text/css" href="styles/canalplus.css">
 
 
-    <script src="components/semantic-ui/build/packaged/javascript/semantic.js" type="text/javascript"></script>
+
 
   </body>
 </html>
